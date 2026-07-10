@@ -3,7 +3,7 @@ A versatile ESP32-based PCB for wireless robot control used in the 2026 Quebec E
 <p align="center">
   <img src="Images/pcb_view_0.png" width="500">
   &nbsp;&nbsp;
-  <img src="Images/pcb_view_1.png" width="400">
+  <img src="Images/pcb_picture.jpg" width="400">
 </p>
 
 # Project overview
