@@ -33,7 +33,7 @@ This electronics platform played a huge role in enabling the team to design a ro
 # Technical overview
 This project consists of a 4-layer PCB designed using Altium Designer. 
 
-You can find the PCB-schematics and the full project report (report is in French) under the [Documentation folder]([https://github.com/justinlalonde/MachinePM---Robot-PCB/tree/6e378ec8aaea6f23886b7b7d68378083d37e8b4c/Documentation](https://github.com/justinlalonde/MachinePM---Robot-PCB/tree/main/Documentation)).
+You can find the PCB-schematics and the full project report (report is in French) under the [Documentation folder](https://github.com/justinlalonde/MachinePM---Robot-PCB/tree/main/Documentation).
 
 <p align="center">
   <img src="Images/schematic_preview.png" width="600">
