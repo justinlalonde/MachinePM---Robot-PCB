@@ -1,5 +1,5 @@
 This folder contains the four following files :
 1 - The Gerber files for manufacturing the 4-layer PCB (Altium Designer CAM format);
-2 - A partial Digikey BOM for the hand-soldering assembly step (not in the standard Digikey cart format);
-3 - A JLCPCB-formatted BOM file to upload when placing a PCBA order;
-4 - A JLCPCB-formatted Pick and Place file to upload when placing a PCBA order;
+2 - A partial Digikey BOM for the hand-soldering assembly step;
+3 - A JLCPCB-formatted BOM file to upload when placing the PCBA order;
+4 - A JLCPCB-formatted Pick and Place file to upload when placing the PCBA order;
