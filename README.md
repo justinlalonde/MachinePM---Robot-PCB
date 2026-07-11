@@ -1,9 +1,9 @@
 # MachinePM - Robot PCB
-A versatile ESP32-based PCB for wireless robot control used in the 2026 Quebec Engineering Games by the Polytechnique Montreal delegation's [MachinePM](https://www.facebook.com/MachinePM/) team
+A versatile ESP32-based PCB for wireless robot control used in the 2026 Quebec Engineering Games by Polytechnique Montreal's [MachinePM](https://www.facebook.com/MachinePM/) robotics team
 <p align="center">
   <img src="Images/pcb_view_0.png" width="500">
   &nbsp;&nbsp;
-  <img src="Images/pcb_picture.jpg" width="400">
+  <img src="Images/pcb_picture.jpg" width="420">
 </p>
 
 # Project overview
@@ -30,9 +30,14 @@ This board was designed to be used on four distinct and very different robots. I
 
 This electronics platform played a huge role in enabling the team to design a robotics solution on a larger scale than it had ever seen and contributed to the team winning **third place at the Machine Challenge of the Quebec Engineering Games 2026**. For more context on the project's results and associated awards, please see [this LinkedIn post](https://www.linkedin.com/posts/justin-lalonde-26bb49305_apr%C3%A8s-huit-mois-de-travail-intensif-je-suis-ugcPost-7419548842389381120-tLYX/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE3yFjMBjUuSvDgIEjEyuwl7U7Dr1T2H0Y8) (post is in French).
 
-# Technical overview
+# Key features
+
+# Hardware architecture
 This project consists of a 4-layer PCB designed using Altium Designer. 
 
+# Future improvements
+
+# Documentation
 You can find the PCB-schematics and the full project report (report is in French) under the [Documentation folder](https://github.com/justinlalonde/MachinePM---Robot-PCB/tree/main/Documentation).
 
 <p align="center">
