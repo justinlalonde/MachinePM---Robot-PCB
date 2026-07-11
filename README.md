@@ -1,5 +1,5 @@
 # MachinePM - Robot PCB
-A versatile ESP32-based PCB for wireless robot control used in the 2026 Quebec Engineering Games by Polytechnique Montreal's [MachinePM](https://www.facebook.com/MachinePM/) robotics team
+A versatile ESP32-based PCB for wireless robot control used in the 2026 [Quebec Engineering Games](https://jeuxdegenie.qc.ca/en/) by the Polytechnique Montreal [MachinePM](https://www.facebook.com/MachinePM/) robotics team
 <p align="center">
   <img src="Images/pcb_view_0.png" width="500">
   &nbsp;&nbsp;
@@ -42,7 +42,7 @@ Along with the ESP32's Bluetooth / Wi-Fi antenna, an on-board RGB-LED and an on/
 
 # Hardware architecture
 This project consists of a 4-layer PCB designed using Altium Designer. 
-This PCB implements an ESP32 microcontroller module and many more integrated circuits.
+This PCB implements an ESP32 microcontroller module ([ESP32-S3-WROOM-1-N16R8](https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf)) and many more integrated circuits.
 <p align="center">
   <img src="Images/parts_id_0.png" width="500">
   &nbsp;&nbsp;
@@ -54,7 +54,7 @@ POWER STAGES :
 2. The input voltage then directly feeds the DC motor driver IC's ([DRV8231](https://www.ti.com/lit/ds/symlink/drv8231.pdf)) as well as the stepper motor driver IC's ([DRV8846](https://www.ti.com/lit/ds/symlink/drv8846.pdf?ts=1783761254264));
 3. This same input voltage is also converted to 5V as well as 7V using two of the same switching regulator IC in a buck converter topology ([TPS56A37](https://www.ti.com/lit/ds/symlink/tps56a37.pdf?ts=1783737334153)).
 4. The 5V and 7V are then multiplexed by two E-Fuse IC's ([TPS249474](https://www.ti.com/lit/ds/symlink/tps25947.pdf?ts=1783753086040)) per servomotor channel. By interacting with the 4-channel DIP-switch, the user can select which of the two supplies powers any one of the four servomotors connected to the board (see image above). These E-Fuse IC's also implement reverse current, overcurrent and inrush current protections independently for each supply;
-5. The 5V supply is fed into the USBA host port for powering downstream devices and is multiplexed with the bus voltage of the USBC device port using a power multiplexer IC ([TPS2115](https://www.ti.com/lit/ds/symlink/tps2115.pdf?ts=1783787434649&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPS2115)) before being regulated to 3.3V ([TLV75733](https://www.ti.com/lit/ds/symlink/tlv757p.pdf?ts=1783787499434&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTLV757P%252Fpart-details%252FTLV75733PDRVR)) to power many IC's present on the board, more importantly the ESP32 module itself. This power multiplexing is to ensure that the board can be programmed with a simple USBC connexion without needing the presence of the main power source;
+5. The 5V supply is fed into the USBA host port for powering downstream devices, reusing the [TPS249474](https://www.ti.com/lit/ds/symlink/tps25947.pdf?ts=1783753086040), and is multiplexed with the bus voltage of the USBC device port using a power multiplexer IC ([TPS2115](https://www.ti.com/lit/ds/symlink/tps2115.pdf?ts=1783787434649&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPS2115)) before being regulated to 3.3V ([TLV75733](https://www.ti.com/lit/ds/symlink/tlv757p.pdf?ts=1783787499434&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTLV757P%252Fpart-details%252FTLV75733PDRVR)) to power many IC's present on the board, more importantly the ESP32 module itself. This power multiplexing is to ensure that the board can be programmed with a simple USBC connexion without needing the presence of the main power source;
 
 DIGITAL IC's
 1. Serial communication with the EPS32 requires a USB-To-UART bridge IC ([CP2102N](https://www.silabs.com/documents/public/data-sheets/cp2102n-datasheet.pdf));
@@ -63,10 +63,18 @@ DIGITAL IC's
 4. A 1 to 2 demultiplexer was used to enable the user DIP-switch to enable only one of the two E-Fuses which handled the 5V and 7V supply to the servomotor channels ([SN74LVC1G18](https://www.ti.com/lit/ds/symlink/sn74lvc1g18.pdf?ts=1783788025016&ref_url=https%253A%252F%252Fwww.google.com%252F));
 
 # Future improvements
+Although the board worked well, some hardware behaviours could be improved. Here are two :
+1. The E-Fuse IC [TPS249474](https://www.ti.com/lit/ds/symlink/tps25947.pdf?ts=1783753086040) which used to protect the PCB from servomotr reverse current or voltage spikes implements a ITIMER blanking interval programming pin which enables the PCB designer to set, using a specific capacitor value to ground, the time for which the IC will ignore an overcurrent event. This pin was left floating in the design, which has the protection IC react with its fastest response time to overcurrent events. This has proven to be problematic after testing with larger servomotors, which have significant but very brief current spikes, which trigger the E-Fuses latch-of protection and disables the motor entirely in some cases. Adding an appropriatly sized capacitor on this pin would most likely resolve this issue.
+2. RC networks could be added to the limit-switch input pins of the ESP32 to filter noise and false detections, which halt the robot's actuators in firmware.
+<p align="center">
+  <img src="Images/Miscellaneous/schematic_preview_0.png" width="300">
+</p>
 
 # Documentation
-You can find the PCB-schematics and the full project report (report is in French) under the [Documentation folder](https://github.com/justinlalonde/MachinePM---Robot-PCB/tree/main/Documentation).
+You can find the PCB-schematics as well as the full project report (report is in French) under [Documentation](https://github.com/justinlalonde/MachinePM---Robot-PCB/tree/main/Documentation).
 
 <p align="center">
-  <img src="Images/schematic_preview.png" width="600">
+  <img src="Images/Miscellaneous/schematic_preview_1.png" width="600">
+  &nbsp;&nbsp;
+  <img src="Images/Miscellaneous/report_cover_page.png" width="310">
 </p>
