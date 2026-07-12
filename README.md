@@ -1,5 +1,5 @@
 # MachinePM - Robot PCB
-A versatile ESP32-based PCB for wireless robot control used in the 2026 [Quebec Engineering Games](https://jeuxdegenie.qc.ca/en/) by the Polytechnique Montreal [MachinePM](https://www.facebook.com/MachinePM/) robotics team
+A versatile ESP32-based PCB for wireless robot control used in the 2026 [Quebec Engineering Games](https://jeuxdegenie.qc.ca/en/) by the Polytechnique Montréal [MachinePM](https://www.facebook.com/MachinePM/) robotics team
 <p align="center">
   <img src="Images/pcb_view_0.png" width="500">
   &nbsp;&nbsp;
